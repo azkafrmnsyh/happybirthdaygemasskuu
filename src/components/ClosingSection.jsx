@@ -336,7 +336,7 @@ export default function ClosingSection() {
                 }}
               >
                 <img
-                  src="./public/profile.jpg"
+                  src="/profile.jpg"
                   alt="Kharisma"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />

@@ -594,7 +594,7 @@ export default function WishSection() {
                     }}
                   >
                     <img
-                      src="./public/profile.jpg"
+                      src="/profile.jpg"
                       alt="Kharisma"
                       style={{
                         width: "100%",
