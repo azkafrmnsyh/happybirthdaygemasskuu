@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+
+/* =============================================
+   DESIGN TOKENS — WHITE + GOLD
+============================================= */
+:root {
+  /* Backgrounds — putih & krem hangat */
+  --c-bg:       #FEFEFE;
+  --c-bg-alt:   #FFFDF5;
+  --c-bg-3:     #FFFBEA;
+  --c-surface:  #FFFFFF;
+  --c-surface2: #FFFEF9;
+
+  /* Text — warm dark */
+  --c-ink:      #1C1500;
+  --c-ink2:     #4A3C10;
+  --c-muted:    #8A7840;
+  --c-hint:     #C4AF70;
+
+  /* GOLD — aksen utama */
+  --c-gold:     #C8870A;   /* rich amber */
+  --c-gold-l:   #F0B020;   /* mid gold */
+  --c-gold-ll:  #FDE68A;   /* soft yellow */
+  --c-gold-d:   #8A5F04;   /* dark amber */
+  --c-gold-bg:  #FFFBEA;   /* gold-tinted bg */
+
+  /* Alias — digunakan komponen lama (mapped ke gold) */
+  --c-rose:     #C8870A;
+  --c-rose-l:   #F0B020;
+  --c-rose-d:   #8A5F04;
+  --c-rose-bg:  #FFFBEA;
+  --c-lavender: #E8C96A;
+  --c-lav-bg:   #FFFDF0;
+  --c-mint:     #D4A830;
+  --c-mint-bg:  #FFFBEA;
+  --c-peach:    #E8B040;
+  --c-peach-bg: #FFFCF0;
+
+  /* Borders */
+  --c-border:   rgba(200, 135, 10, 0.18);
+  --c-border2:  rgba(200, 135, 10, 0.12);
+
+  /* Spacing */
+  --sp-xs:  8px;
+  --sp-sm:  16px;
+  --sp-md:  24px;
+  --sp-lg:  40px;
+  --sp-xl:  64px;
+  --sp-2xl: 96px;
+  --max-w: 480px;
+}
+
+/* =============================================
+   RESET
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Nunito', 'Plus Jakarta Sans', sans-serif;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+img { display: block; max-width: 100%; }
+
+/* =============================================
+   SCROLLBAR — gold
+============================================= */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--c-gold-bg); }
+::-webkit-scrollbar-thumb { background: var(--c-gold-l); border-radius: 4px; }
+
+/* =============================================
+   CUSTOM CURSOR — gold
+============================================= */
+.cursor-dot {
+  position: fixed; pointer-events: none; z-index: 9999;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--c-gold);
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  position: fixed; pointer-events: none; z-index: 9998;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid rgba(200, 135, 10, 0.45);
+  transform: translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              height 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* =============================================
+   TYPOGRAPHY
+============================================= */
+.font-display { font-family: 'Playfair Display', serif; }
+.font-serif   { font-family: 'Cormorant Garamond', serif; }
+.font-nunito  { font-family: 'Nunito', sans-serif; }
+
+/* Gradient text — warm gold */
+.gt {
+  background: linear-gradient(135deg, #8A5F04 0%, #C8870A 40%, #F0B020 75%, #FFD060 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gt-gold {
+  background: linear-gradient(135deg, #8A5F04 0%, #C8870A 50%, #F0B020 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =============================================
+   LAYOUT
+============================================= */
+.section { width: 100%; padding: var(--sp-xl) var(--sp-md); }
+.inner   { width: 100%; max-width: var(--max-w); margin: 0 auto; }
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-gold-d);
+  font-weight: 600;
+}
+
+.divider {
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, var(--c-gold), var(--c-gold-l), transparent);
+  border-radius: 2px;
+  margin: 16px auto;
+}
+
+/* =============================================
+   SECTION BACKGROUND PATTERNS
+   All use gold dots on white/cream
+============================================= */
+.pattern-rose {
+  background-color: var(--c-bg-alt);
+  background-image: radial-gradient(circle, rgba(200,135,10,0.13) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.pattern-gold {
+  background-color: var(--c-gold-bg);
+  background-image: radial-gradient(circle, rgba(200,135,10,0.16) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.pattern-cream {
+  background-color: var(--c-bg);
+  background-image: radial-gradient(circle, rgba(200,135,10,0.1) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+.pattern-lav {
+  background-color: var(--c-lav-bg);
+  background-image: radial-gradient(circle, rgba(200,135,10,0.12) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.pattern-mint {
+  background-color: var(--c-bg-alt);
+  background-image: radial-gradient(circle, rgba(200,135,10,0.12) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.pattern-peach {
+  background-color: var(--c-gold-bg);
+  background-image: radial-gradient(circle, rgba(200,135,10,0.14) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+/* =============================================
+   CARDS
+============================================= */
+.card {
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: 24px;
+  padding: var(--sp-lg) var(--sp-md);
+  box-shadow: 0 4px 24px rgba(200, 135, 10, 0.07), 0 1px 4px rgba(0,0,0,0.03);
+}
+.card-rose {
+  background: linear-gradient(135deg, #fff, var(--c-gold-bg));
+  border: 1.5px solid var(--c-border);
+  border-radius: 24px;
+  padding: var(--sp-lg) var(--sp-md);
+  box-shadow: 0 8px 32px rgba(200, 135, 10, 0.09);
+}
+.card-gold {
+  background: linear-gradient(135deg, #fff, var(--c-gold-bg));
+  border: 1.5px solid var(--c-border2);
+  border-radius: 24px;
+  padding: var(--sp-lg) var(--sp-md);
+  box-shadow: 0 8px 32px rgba(200, 135, 10, 0.09);
+}
+
+/* =============================================
+   BUTTONS — gold primary
+============================================= */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem; font-weight: 700;
+  cursor: pointer; border: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.btn:active { transform: scale(0.95) !important; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--c-gold), var(--c-gold-d));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(200, 135, 10, 0.3);
+}
+.btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 32px rgba(200, 135, 10, 0.4); }
+
+.btn-outline {
+  background: var(--c-surface);
+  color: var(--c-gold-d);
+  border: 1.5px solid var(--c-border);
+}
+.btn-outline:hover { border-color: var(--c-gold); transform: scale(1.02); }
+
+/* =============================================
+   INPUTS
+============================================= */
+.input {
+  width: 100%; padding: 14px 18px; border-radius: 16px;
+  border: 1.5px solid rgba(200, 135, 10, 0.2);
+  background: var(--c-surface); color: var(--c-ink);
+  font-family: 'Nunito', sans-serif; font-size: 0.9rem;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  caret-color: var(--c-gold);
+}
+.input:focus  { border-color: var(--c-gold); box-shadow: 0 0 0 3px rgba(200, 135, 10, 0.1); }
+.input::placeholder { color: var(--c-hint); }
+textarea.input { resize: none; line-height: 1.75; }
+
+/* =============================================
+   WAVE DIVIDER
+============================================= */
+.wave-divider { display: block; line-height: 0; margin: 0; padding: 0; }
+.wave-divider svg { display: block; width: 100%; }
+
+/* =============================================
+   ANIMATIONS
+============================================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(3deg); }
+  66%       { transform: translateY(-4px) rotate(-2deg); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(-4deg); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.3); }
+}
+@keyframes bounce-in {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%  { transform: rotate(-4deg); }
+  75%  { transform: rotate(4deg); }
+}
+
+.anim-float     { animation: float  4s ease-in-out infinite; }
+.anim-float2    { animation: float2 5.5s ease-in-out infinite; }
+.anim-spin      { animation: spin  10s linear infinite; }
+.anim-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+.anim-wiggle    { animation: wiggle 2.5s ease-in-out infinite; }
