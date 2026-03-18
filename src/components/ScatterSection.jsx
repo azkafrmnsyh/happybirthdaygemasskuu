@@ -511,7 +511,7 @@ export default function ScatterSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Momen Tersebar
+            Pap random kamuu
           </motion.h2>
           <div className="divider" />
           <motion.p
@@ -525,7 +525,7 @@ export default function ScatterSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            foto mulai di tengah — sebarkan sendiri!
+            {/* foto mulai di tengah — sebarkan sendiri! */}
           </motion.p>
         </div>
 
